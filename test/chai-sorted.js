@@ -132,3 +132,39 @@ describe('to.be.ascendingBy(property)', function () {
     expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy('name')
   })
 })
+
+describe('to.be.sortedBy({ignoreCase: true})', function () {
+  it('key id of numbers', function () {
+    expect([{id: 1}, {id: 2}, {id: 3}]).to.be.sortedBy('id', {ignoreCase: true})
+  })
+  it('key id of strings', function () {
+    expect([{id: 'a'}, {id: 'b'}, {id: 'c'}]).to.be.sortedBy('id', {ignoreCase: true})
+  })
+  it('key name of words and letters', function () {
+    expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.sortedBy('name', {ignoreCase: true})
+  })
+})
+
+describe('to.be.ascendingBy({ignoreCase: true})', function () {
+  it('key id of numbers', function () {
+    expect([{id: 1}, {id: 2}, {id: 3}]).to.be.ascendingBy('id', {ignoreCase: true})
+  })
+  it('key id of strings', function () {
+    expect([{id: 'a'}, {id: 'b'}, {id: 'c'}]).to.be.ascendingBy('id', {ignoreCase: true})
+  })
+  it('key name of words and letters', function () {
+    expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy('name', {ignoreCase: true})
+  })
+})
+
+describe('to.be.descendingBy({ignoreCase: true})', function () {
+  it('key id of numbers', function () {
+    expect([{id: 3}, {id: 2}, {id: 1}]).to.be.descendingBy('id', {ignoreCase: true})
+  })
+  it('key id of strings', function () {
+    expect([{id: 'c'}, {id: 'b'}, {id: 'a'}]).to.be.descendingBy('id', {ignoreCase: true})
+  })
+  it('key name of words and letters', function () {
+    expect([{id: 1, name: 'cat'}, {id: 34, name: 'c'}, {id: 3, name: 'boy'}, {size: 'large', name: 'b'}]).to.be.descendingBy('name', {ignoreCase: true})
+  })
+})
