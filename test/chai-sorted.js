@@ -119,6 +119,16 @@ describe('to.be.descendingBy(property)', function () {
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'cat'}, {id: 34, name: 'c'}, {id: 3, name: 'boy'}, {size: 'large', name: 'b'}]).to.be.descendingBy('name')
   })
+  it('{ color { name } }', function () {
+    expect([{id: 3, color: { name: 'red' }}, {id: 2, color: { name: 'green' }}, {id: 1, color: { name: 'blue' }}]).to.be.descendingBy('color.name')
+  })
+  it('{ color { name { desc } } }', function () {
+    expect([
+      {id: 3, color: { name: 'blue', desc: { type: 'c' } }},
+      {id: 2, color: { name: 'green', desc: { type: 'b' } }},
+      {id: 1, color: { name: 'red', desc: { type: 'a' } }}
+    ]).to.be.descendingBy('color.desc.type')
+  })
 })
 
 describe('to.be.ascendingBy(property)', function () {
@@ -130,5 +140,15 @@ describe('to.be.ascendingBy(property)', function () {
   })
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy('name')
+  })
+  it('{ color { name } }', function () {
+    expect([{id: 3, color: { name: 'blue' }}, {id: 2, color: { name: 'green' }}, {id: 1, color: { name: 'red' }}]).to.be.ascendingBy('color.name')
+  })
+  it('{ color { name { desc } } }', function () {
+    expect([
+      {id: 3, color: { name: 'blue', desc: { type: 'a' } }},
+      {id: 2, color: { name: 'green', desc: { type: 'b' } }},
+      {id: 1, color: { name: 'red', desc: { type: 'c' } }}
+    ]).to.be.ascendingBy('color.desc.type')
   })
 })

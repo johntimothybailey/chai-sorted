@@ -44,7 +44,7 @@ Test for ascending sort order of array
 ```javascript
 expect(["a","b"]).to.be.sorted()
 // or
-expect(["a","b"]).to.be.sorted({descending: false}) 
+expect(["a","b"]).to.be.sorted({descending: false})
 ```
 
 Test for descending sort order of array
@@ -85,6 +85,14 @@ Test for descending sort order of array by `name` attribute
 
 ```javascript
 expect([{id:2,name:"bat"},{id:3,name:"apples"}]).to.be.descendingBy("name")
+```
+
+### `.ascendingBy` / `.descendingBy` Dot Notation
+
+You can also utilize dot notation for objects for both `.descendingBy` and `.ascendingBy`:
+
+```javascript
+expect([{ name: { first: 'Amelia' } }, { name: { first: 'Billy' } }, { name: { first: 'John' }}]).to.be.ascendingBy('name.first');
 ```
 
 ### `ascending` property
