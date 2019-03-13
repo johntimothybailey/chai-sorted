@@ -56,6 +56,9 @@ describe('to.be.sortedBy() in ascending order', function () {
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'a'}, {id: 34, name: 'apple'}, {id: 3, name: 'b'}, {size: 'large', name: 'ba'}]).to.be.sortedBy('name')
   })
+  it('key function accessor', function () {
+    expect([{id: 1, name: 'a'}, {id: 34, name: 'apple'}, {id: 3, name: 'b'}, {size: 'large', name: 'ba'}]).to.be.sortedBy(function (item) { return item.name })
+  })
 })
 
 describe('to.be.sortedBy({ descending: false }) in ascending order', function () {
@@ -73,6 +76,9 @@ describe('to.be.sortedBy() in descending order', function () {
   })
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'cat'}, {id: 34, name: 'bat'}, {id: 3, name: 'b'}, {size: 'large', name: 'apple'}]).to.be.sortedBy('name', { descending: true })
+  })
+  it('key function accessor', function () {
+    expect([{id: 1, name: 'cat'}, {id: 34, name: 'bat'}, {id: 3, name: 'b'}, {size: 'large', name: 'apple'}]).to.be.sortedBy(function (item) { return item.name }, { descending: true })
   })
 })
 
@@ -119,6 +125,9 @@ describe('to.be.descendingBy(property)', function () {
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'cat'}, {id: 34, name: 'c'}, {id: 3, name: 'boy'}, {size: 'large', name: 'b'}]).to.be.descendingBy('name')
   })
+  it('key function accessor', function () {
+    expect([{id: 1, name: 'cat'}, {id: 34, name: 'c'}, {id: 3, name: 'boy'}, {size: 'large', name: 'b'}]).to.be.descendingBy(function (item) { return item.name })
+  })
 })
 
 describe('to.be.ascendingBy(property)', function () {
@@ -130,5 +139,8 @@ describe('to.be.ascendingBy(property)', function () {
   })
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy('name')
+  })
+  it('key function accessor', function () {
+    expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy(function (item) { return item.name })
   })
 })
