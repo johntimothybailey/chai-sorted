@@ -119,6 +119,9 @@ describe('to.be.descendingBy(property)', function () {
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'cat'}, {id: 34, name: 'c'}, {id: 3, name: 'boy'}, {size: 'large', name: 'b'}]).to.be.descendingBy('name')
   })
+  it('nested key id of numbers', function () {
+    expect([{ obj: { id: 3 } }, { obj: { id: 2 } }, { obj: { id: 1 } }]).to.be.nested.descendingBy('obj.id')
+  })
 })
 
 describe('to.be.ascendingBy(property)', function () {
@@ -130,5 +133,8 @@ describe('to.be.ascendingBy(property)', function () {
   })
   it('key name of words and letters', function () {
     expect([{id: 1, name: 'a'}, {id: 34, name: 'boy'}, {id: 3, name: 'c'}, {size: 'large', name: 'cat'}]).to.be.ascendingBy('name')
+  })
+  it('nested key id of numbers', function () {
+    expect([{ obj: { id: 1 } }, { obj: { id: 2 } }, { obj: { id: 3 } }]).to.be.nested.ascendingBy('obj.id')
   })
 })
